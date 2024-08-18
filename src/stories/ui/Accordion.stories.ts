@@ -10,7 +10,7 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
-export const DefaultTable: Story = {
+export const DefaultAccordion: Story = {
     args: {
         mockData: Accordion,
     },
