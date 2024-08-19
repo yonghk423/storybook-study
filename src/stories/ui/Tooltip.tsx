@@ -9,7 +9,8 @@ const Tooltip = () => {
             <RadixTooltip.Root>
                 <RadixTooltip.Trigger asChild>
                     <button className="IconButton">
-                        <PlusIcon />
+                        {/* <PlusIcon /> */}
+                        Title
                     </button>
                 </RadixTooltip.Trigger>
                 <RadixTooltip.Portal>
