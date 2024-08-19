@@ -27,14 +27,12 @@ const Select = () => {
             <div className="select-trigger">
                 {selectedOption}
             </div>
-            {isOpen && (
-                <div className="select-options">
-                    <div className="select-option" onClick={() => handleOptionClick('Apple')}>Apple</div>
-                    <div className="select-option" onClick={() => handleOptionClick('Banana')}>Banana</div>
-                    <div className="select-option" onClick={() => handleOptionClick('Orange')}>Orange</div>
-                    <div className="select-option" onClick={() => handleOptionClick('Mango')}>Mango</div>
-                </div>
-            )}
+            <div className={`select-options ${isOpen ? 'open' : ''}`}>
+                <div className="select-option" onClick={() => handleOptionClick('Apple')}>Apple</div>
+                <div className="select-option" onClick={() => handleOptionClick('Banana')}>Banana</div>
+                <div className="select-option" onClick={() => handleOptionClick('Orange')}>Orange</div>
+                <div className="select-option" onClick={() => handleOptionClick('Mango')}>Mango</div>
+            </div>
         </div>
     );
 };
