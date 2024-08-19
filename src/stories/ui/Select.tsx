@@ -1,9 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './Select.css';
 
 const Select = () => {
-    return (
-        <>Select</>
-    )
-}
+    const [selectedOption, setSelectedOption] = useState('Select an option');
+    const [isOpen, setIsOpen] = useState(false);
 
-export default Select
+    const handleMouseEnter = () => {
+        setIsOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsOpen(false);
+    };
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false);
+    };
+
+    return (
+        <div
+            className="custom-select"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <div className="select-trigger">
+                {selectedOption}
+            </div>
+            {isOpen && (
+                <div className="select-options">
+                    <div className="select-option" onClick={() => handleOptionClick('Apple')}>Apple</div>
+                    <div className="select-option" onClick={() => handleOptionClick('Banana')}>Banana</div>
+                    <div className="select-option" onClick={() => handleOptionClick('Orange')}>Orange</div>
+                    <div className="select-option" onClick={() => handleOptionClick('Mango')}>Mango</div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Select;
