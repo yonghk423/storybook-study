@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './Select.css';
 
 const Select = () => {
-    const [selectedOption, setSelectedOption] = useState('Select an option');
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('Select an option');
 
     const handleMouseEnter = () => {
         setIsOpen(true);

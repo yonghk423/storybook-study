@@ -24,7 +24,6 @@ const App = () => {
 
     return (
         <div>
-            <h1>Click the button to open the modal</h1>
             <button onClick={openModal}>Open Modal</button>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <h2>Modal Title</h2>
