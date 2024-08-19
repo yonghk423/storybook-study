@@ -1,0 +1,20 @@
+/* Toast.css */
+
+.toast {
+    position: fixed;
+    top: 50%; /* 화면의 수직 중앙 */
+    left: 50%; /* 화면의 수평 중앙 */
+    transform: translate(-50%, -50%); /* 요소의 중앙이 화면의 중앙에 오도록 이동 */
+    background-color: #333; /* 배경색 */
+    color: #fff; /* 글자색 */
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.toast.fade-out {
+    opacity: 0; /* 사라지는 애니메이션 */
+}
