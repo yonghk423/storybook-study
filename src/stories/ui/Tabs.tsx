@@ -1,21 +1,42 @@
-import React from 'react';
-import * as RadixTabs from '@radix-ui/react-tabs';
+import React, { useState } from 'react';
+import './Tabs.css';
 
 const Tabs = () => {
+    const [activeTab, setActiveTab] = useState('tab1');
+
+    const handleTabClick = (tabId) => {
+        setActiveTab(tabId);
+    };
+
     return (
-        <div>
-            <RadixTabs.Root defaultValue="tab1" orientation="vertical">
-                <RadixTabs.List aria-label="tabs example">
-                    <RadixTabs.Trigger value="tab1">One</RadixTabs.Trigger>
-                    <RadixTabs.Trigger value="tab2">Two</RadixTabs.Trigger>
-                    <RadixTabs.Trigger value="tab3">Three</RadixTabs.Trigger>
-                </RadixTabs.List>
-                <RadixTabs.Content value="tab1">Tab one content</RadixTabs.Content>
-                <RadixTabs.Content value="tab2">Tab two content</RadixTabs.Content>
-                <RadixTabs.Content value="tab3">Tab three content</RadixTabs.Content>
-            </RadixTabs.Root>
+        <div className="tabs-container">
+            <div className="tabs">
+                <button
+                    className={`tab-button ${activeTab === 'tab1' ? 'active' : ''}`}
+                    onClick={() => handleTabClick('tab1')}
+                >
+                    Tab 1
+                </button>
+                <button
+                    className={`tab-button ${activeTab === 'tab2' ? 'active' : ''}`}
+                    onClick={() => handleTabClick('tab2')}
+                >
+                    Tab 2
+                </button>
+                <button
+                    className={`tab-button ${activeTab === 'tab3' ? 'active' : ''}`}
+                    onClick={() => handleTabClick('tab3')}
+                >
+                    Tab 3
+                </button>
+            </div>
+            <div className="tab-content">
+                {activeTab === 'tab1' && <div>Content for Tab 1</div>}
+                {activeTab === 'tab2' && <div>Content for Tab 2</div>}
+                {activeTab === 'tab3' && <div>Content for Tab 3</div>}
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default Tabs;
