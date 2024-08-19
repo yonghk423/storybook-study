@@ -10,7 +10,7 @@ const meta: Meta<typeof Tabs> = {
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
-export const DefaultAccordion: Story = {
+export const DefaultTabs: Story = {
     args: {
     },
 };

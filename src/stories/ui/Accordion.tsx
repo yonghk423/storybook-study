@@ -1,34 +1,30 @@
-import React from 'react';
-import * as RadixAccordion from '@radix-ui/react-accordion';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
+import React, { useState } from 'react';
 import './Accordion.css';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-const Accordions = () => {
+const Accordion = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const toggleAccordion = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
     return (
-        <div>
-            <RadixAccordion.Root
-                className='AccordionContainer'
-                type="single" collapsible>
-                <RadixAccordion.Item
-                    className='AccordionItem'
-                    value="item-1">
-                    <RadixAccordion.Header
-                        className='AccordionHeader'>
-
-                        <RadixAccordion.Trigger className="AccordionTrigger">
-                            <ChevronDownIcon className="AccordionChevron" aria-hidden />
-                            <span
-                                className='AccordionTriggerTitle'
-                            >타이틀을 입력</span>
-                        </RadixAccordion.Trigger>
-                    </RadixAccordion.Header>
-                    <RadixAccordion.Content
-                        className='AccordionContent'
-                    >hello</RadixAccordion.Content>
-                </RadixAccordion.Item>
-            </RadixAccordion.Root>
+        <div className="accordion">
+            <div className="accordion-item">
+                <button
+                    className={`accordion-header ${activeIndex === 0 ? 'active' : ''}`}
+                    onClick={() => toggleAccordion(0)}
+                >
+                    <ChevronDownIcon className="accordion-icon" />
+                    Section 1
+                </button>
+                <div className={`accordion-content ${activeIndex === 0 ? 'active' : ''}`}>
+                    <p>This is the content of section 1.</p>
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Accordions
+export default Accordion;

@@ -12,6 +12,5 @@ type Story = StoryObj<typeof Accordion>;
 
 export const DefaultAccordion: Story = {
     args: {
-        mockData: Accordion,
     },
 };
