@@ -1,49 +1,42 @@
 /* Accordion.css */
-
 .accordion {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .accordion-item {
-    border-top: 1px solid #ddd;
-  }
-  
-  .accordion-item:first-child {
-    border-top: none;
-  }
-  
-  .accordion-header {
-    width: 100%;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-    display: flex; /* 아이콘과 텍스트를 수평으로 배치 */
-    align-items: center; /* 아이콘과 텍스트가 가운데 정렬되도록 설정 */
-  }
-  
-  .accordion-icon {
-    transition: transform 0.3s ease; /* 회전 애니메이션 추가 */
-    margin-right: 10px; /* 아이콘과 텍스트 사이의 간격 추가 */
-  }
-  
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding: 0 10px;
-    background-color: #fff;
-  }
-  
-  .accordion-content.active {
-    max-height: 100px; /* 적절한 높이로 조정 가능 */
-    padding: 10px;
-  }
-  
-  .accordion-header.active .accordion-icon {
-    transform: rotate(180deg); /* 활성화 상태에서 아이콘을 회전 */
-  }
-  
+}
+
+.accordion-item {
+}
+
+.accordion-header {
+  width: 100%;
+  background-color: #2c3340;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 0; /* 타이틀과 컨텐츠 사이의 여백 제거 */
+  padding: 6px 20px;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  margin-right: 10px;
+}
+
+.accordion-content {
+  max-height: 0; /* 기본적으로 완전히 닫히도록 설정 */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  padding: 0 20px; /* 상하 패딩 제거 */
+  margin: 0; /* 타이틀과 컨텐츠 사이의 여백 제거 */
+  background-color: #1e2530;
+}
+
+.accordion-content.active {
+  max-height: 74px; /* 내용이 있을 때 적절한 높이로 설정 */
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}

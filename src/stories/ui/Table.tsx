@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import Accordion from './Accordion';
 
 const Table = ({ mockData }) => {
     // 상태 관리: 클릭된 행을 추적
@@ -15,57 +16,60 @@ const Table = ({ mockData }) => {
     };
 
     return (
-        <Wrapper>
-            <TableContainer>
-                <TableHead>
-                    <TableRow>
-                        <TableHeader>Patient</TableHeader>
-                        <TableHeader>Study</TableHeader>
-                        <TableHeader>Status</TableHeader>
-                        <TableHeader>Timestamp</TableHeader>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {mockData.map((el, index) => (
-                        <React.Fragment key={el.key}>
-                            <TableRow onClick={() => handleRowClick(index)}>
-                                <TableCell>
-                                    {el.patientId} {el.patientName} {el.patientSex}
-                                </TableCell>
-                                <TableCell>
-                                    {el.studyDate} {el.studyDescription}
-                                </TableCell>
-                                <TableCell>
-                                    {removeDuplicates(el.statusList)?.map((status, idx) => (
-                                        <div key={idx}>{status}</div>
-                                    ))}
-                                </TableCell>
-                                <TableCell>
-                                    {el.studyDate}
-                                </TableCell>
-                            </TableRow>
-                            {/* 하위 테이블 표시 */}
-                            {expandedRow === index && (
-                                <SubTableRow>
-                                    <TableCell colSpan={4}>
-                                        <SubTable>
-                                            <tbody>
-                                                <TableRow>
-                                                    <TableCell>Sub Item 1</TableCell>
-                                                    <TableCell>Sub Item 2</TableCell>
-                                                    <TableCell>Sub Item 3</TableCell>
-                                                </TableRow>
-                                                {/* 추가적인 하위 테이블 행을 여기 추가할 수 있습니다 */}
-                                            </tbody>
-                                        </SubTable>
+        <>
+            <Accordion />
+            <Wrapper>
+                <TableContainer>
+                    <TableHead>
+                        <TableRow>
+                            <TableHeader>Patient</TableHeader>
+                            <TableHeader>Study</TableHeader>
+                            <TableHeader>Status</TableHeader>
+                            <TableHeader>Timestamp</TableHeader>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {mockData.map((el, index) => (
+                            <React.Fragment key={el.key}>
+                                <TableRow onClick={() => handleRowClick(index)}>
+                                    <TableCell>
+                                        {el.patientId} {el.patientName} {el.patientSex}
                                     </TableCell>
-                                </SubTableRow>
-                            )}
-                        </React.Fragment>
-                    ))}
-                </TableBody>
-            </TableContainer>
-        </Wrapper>
+                                    <TableCell>
+                                        {el.studyDate} {el.studyDescription}
+                                    </TableCell>
+                                    <TableCell>
+                                        {removeDuplicates(el.statusList)?.map((status, idx) => (
+                                            <div key={idx}>{status}</div>
+                                        ))}
+                                    </TableCell>
+                                    <TableCell>
+                                        {el.studyDate}
+                                    </TableCell>
+                                </TableRow>
+                                {/* 하위 테이블 표시 */}
+                                {expandedRow === index && (
+                                    <SubTableRow>
+                                        <TableCell colSpan={4}>
+                                            <SubTable>
+                                                <tbody>
+                                                    <TableRow>
+                                                        <TableCell>Sub Item 1</TableCell>
+                                                        <TableCell>Sub Item 2</TableCell>
+                                                        <TableCell>Sub Item 3</TableCell>
+                                                    </TableRow>
+                                                    {/* 추가적인 하위 테이블 행을 여기 추가할 수 있습니다 */}
+                                                </tbody>
+                                            </SubTable>
+                                        </TableCell>
+                                    </SubTableRow>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </TableBody>
+                </TableContainer>
+            </Wrapper>
+        </>
     );
 };
 
