@@ -33,6 +33,7 @@ const Accordion = () => {
                                 <FilterList>
                                     <div className="ai-service">
                                         <Select />
+
                                     </div>
                                     <div className="transaction-date">
                                         <Select />
@@ -65,6 +66,9 @@ export default Accordion;
 
 const AccordionContainer = styled.div`
   /* accordion 스타일 */
+  z-index: 99;
+  background-color: red;
+  height: 40dvh;
 `;
 
 const AccordionItem = styled.div`
