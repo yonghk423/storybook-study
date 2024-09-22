@@ -10,7 +10,7 @@ const meta: Meta<typeof AITable> = {
 export default meta;
 type Story = StoryObj<typeof AITable>;
 
-export const DefaultSwitch: Story = {
+export const DefaultAITable: Story = {
     args: {
     },
 };

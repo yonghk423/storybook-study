@@ -206,7 +206,8 @@ width: 100%;
 height: 100%;
 display: flex;
 flex: 1;
-    border: 1px solid red;
+font-size: 11px;
+border: 1px solid red;
 
   background-color: #2c3340;
 
